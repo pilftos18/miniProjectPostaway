@@ -1,0 +1,25 @@
+{
+  "name": "miniproject_postaway",
+  "version": "1.0.0",
+  "description": "MiniProject",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx nodemon index"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pilftos18/miniProjectPostaway.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pilftos18/miniProjectPostaway/issues"
+  },
+  "homepage": "https://github.com/pilftos18/miniProjectPostaway#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
