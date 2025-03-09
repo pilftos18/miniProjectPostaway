@@ -3,26 +3,48 @@ export default class CommentModel {
         this.userId = userId;
         this.postId = postId;
         this.content = content;
+        this.id = id;
     }
-
 
     static getAll(){
         return Comment;
     }
 
-    static create(userId, postId, content) {
-        const comment = new CommentModel(userId, postId, content);
-        comment =   Comment.length + 1,
+    static create(comment) {
+        comment.id =   Comment.length + 1,
+        //const comment = new CommentModel(userId, postId, content);
         Comment.push(comment);
         return comment;
     }
 
+    static getComment(postId){
+        const comments = Comment.filter(comment => comment.postId == postId);
+        return comments;
+    }
 
+    static updateComment(id, userId, content) {
+        console.log(id, userId, content);
+        
+        const comment = Comment.find(comment => comment.id == id && comment.userId == userId);
+        if(comment){
+            comment.content = content;
+            return comment;
+        }
+    }
 
+    static deleteComment(id){
+        const commentIndex = Comment.findIndex(comment => comment.id == id);
+        if(commentIndex >-1){
+            Comment.splice(commentIndex, 1);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 
-Comment = [
+const Comment = [
     {
         id: 1,
         userId: 2,
@@ -30,13 +52,13 @@ Comment = [
         content: 'New post!',
     },
     {
-        id: 1,
+        id: 2,
         userId: 3,
         postId: 2,
         content: 'Old post!',
     },
     {
-        id: 1,
+        id: 3,
         userId: 1,
         postId: 3,
         content: 'Great post!',

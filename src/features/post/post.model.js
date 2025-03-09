@@ -1,10 +1,10 @@
 export  default class PostModel{
 
-    constructor(userId, caption, imageUrl,id){
+    constructor(id, userId, caption, imageUrl){
+        this.id = id;
         this.userId = userId;
         this.caption = caption;
         this.imageUrl = imageUrl;
-        this.id = id;
     }
 
     static getAllPost(){
@@ -15,21 +15,22 @@ export  default class PostModel{
         return postByuser;
     }
 
-    static createPost(userId,caption, imageUrl)
+    static createPost(newpost)
     {
-            const post = new PostModel(userId,caption,imageUrl);
-            post.id = Post.length+1;
-            Post.push(post);
-            return post;
+        newpost.id = Post.length+1;
+        Post.push(newpost);
+        return newpost;
     }
 
     static getpostById(id){
         const post = Post.find(post => post.id == id);
+        console.log("post",post);
+        
         return post;
     }
 
-    static updatePost(id, caption, imageUrl){
-        const post = Post.find(post => post.id == id);
+    static updatePost(id, userId, caption, imageUrl){
+        const post = Post.find(post => post.id == id && post.userId == userId);
         if(post){
             post.caption = caption;
             post.imageUrl = imageUrl;
@@ -69,4 +70,10 @@ const Post = [
     userId: 1,
     caption: "Third Post",
     imageUrl: "https://example.com/image3.jpg"
-}]
+},
+{
+    id: 4,
+    userId: 2,
+    caption: "fourth Post",
+    imageUrl: "https://example.com/image2.jpg"
+},]

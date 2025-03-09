@@ -30,9 +30,10 @@ export default class UserController{
                 "taraIn!123j%6j##$G",
                 {expiresIn : '1h'}
             );
+
             res.status(200)
-            .cookie("jwt-token", token,  { maxAge: 900000, httpOnly: false })
-            .cookie("userId", userToAuthenticate.id, { maxAge: 900000, httpOnly: false })
+            .cookie("jwtToken", token,  { maxAge: 900000, httpOnly: false })
+            // .cookie("userId", userToAuthenticate.id, { maxAge: 900000, httpOnly: false })
             .send({user: userToAuthenticate, token});
         }else{
            res.status(401).send("Invalid credentials");

@@ -1,0 +1,5 @@
+{"level":"info","message":"\n  req URL : /api/posts/ \n  req Body : {}","service":"request-logging"}
+{"level":"info","message":"\n  req URL : /api/comments/ \n  req Body : {}","service":"request-logging"}
+{"level":"info","message":"\n  req URL : /api/comments/3 \n  req Body : {\"content\":\"hehehhe\"}","service":"request-logging"}
+{"level":"info","message":"\n  req URL : /api/comments/3 \n  req Body : {\"content\":\"hehehhe\"}","service":"request-logging"}
+{"level":"info","message":"\n  req URL : /api/comments/5 \n  req Body : {\"content\":\"alka\"}","service":"request-logging"}
